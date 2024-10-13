@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://dvvwmj173en6g"]
+
+[ext_resource type="Script" path="res://Tests/Resources/weapon.gd" id="1_1tmro"]
+[ext_resource type="Texture2D" uid="uid://cauadpccvij0e" path="res://assets/glitch/laserSwitchGreenOff.png" id="2_5twgj"]
+
+[resource]
+script = ExtResource("1_1tmro")
+damage = 2
+weapon_name = "Axe"
+texture = ExtResource("2_5twgj")

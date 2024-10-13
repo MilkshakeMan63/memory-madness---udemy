@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ImageFilesList" load_steps=2 format=3 uid="uid://bjxcoxplg6cef"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/image_file_list.gd" id="1_fr7ed"]
+
+[resource]
+script = ExtResource("1_fr7ed")
+file_name = Array[String]([])

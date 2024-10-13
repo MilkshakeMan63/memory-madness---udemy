@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cjrcji3800e33"]
+
+[ext_resource type="Script" path="res://Tests/Resources/weapon.gd" id="1_bvaqr"]
+[ext_resource type="Texture2D" uid="uid://cgx7tcwr73u" path="res://assets/glitch/gummyWormGreenMid.png" id="2_h2y0c"]
+
+[resource]
+script = ExtResource("1_bvaqr")
+damage = 6
+weapon_name = "Knife"
+texture = ExtResource("2_h2y0c")
