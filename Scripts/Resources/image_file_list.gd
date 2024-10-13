@@ -8,4 +8,9 @@ class_name  ImageFilesList
 
 
 func add_file_name(fn: String):
-	file_name.append(fn)
+	if not '.import' in fn: # checks if the current item fn does not contain the string .import.
+		file_name.append(fn) # add to the array what is fed into this function that is a string.
+
+
+func get_file_names():
+	return file_name

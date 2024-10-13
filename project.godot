@@ -15,6 +15,11 @@ run/main_scene="res://Tests/resource_test.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ImageManager="*res://Scripts/Singletons/image_manager.gd"
+GameManager="*res://Scripts/Singletons/game_manager.gd"
+
 [display]
 
 window/size/viewport_width=1024
