@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx8g2vvikylqi"]
+
+[ext_resource type="Texture2D" uid="uid://cqmc3l043na60" path="res://assets/glitch/alienYellow_square.png" id="1_li6yj"]
+[ext_resource type="Script" path="res://Scenes/front_sprite.gd" id="2_m4vc7"]
+
+[node name="FrontSprite" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("1_li6yj")
+script = ExtResource("2_m4vc7")
