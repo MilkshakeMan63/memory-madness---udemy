@@ -11,6 +11,7 @@ func _ready() -> void:
 	SignalManager.on_level_selected.connect(on_level_selected)
 	show_game(false)
 
+
 func show_game(s: bool):
 	game.visible = s
 	main.visible = not s

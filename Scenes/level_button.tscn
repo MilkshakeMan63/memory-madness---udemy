@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://se42nc0h7pyq" path="res://assets/ui/level_select_frame_select_128.png" id="2_bcmhg"]
 [ext_resource type="Texture2D" uid="uid://bu6wukr0jju0p" path="res://assets/ui/level_select_frame_hover_128.png" id="3_6sbuq"]
 [ext_resource type="LabelSettings" uid="uid://bb630qrhxr0ef" path="res://assets/GM_32_White.tres" id="4_57tj5"]
-[ext_resource type="Script" path="res://Scenes/level_button.gd" id="4_e414u"]
+[ext_resource type="Script" path="res://Scripts/level_button.gd" id="4_e414u"]
 
 [node name="LevelButton" type="TextureButton"]
 anchors_preset = 8

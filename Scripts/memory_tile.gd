@@ -1,0 +1,61 @@
+extends TextureButton
+
+
+class_name MemoryTile
+
+
+@onready var frame_image: TextureRect = $FrameImage
+@onready var item_image: TextureRect = $ItemImage
+
+var _item_name: String 
+var _can_select_me: bool = true
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	SignalManager.on_selection_enabled.connect(on_selection_enabled)
+	SignalManager.on_selection_disabled.connect(on_selection_disabled)
+
+
+func reveal(r: bool): # reveals the frame and item images when true is passed into the function.
+	frame_image.visible = r
+	item_image.visible = r
+
+
+func get_item_name() -> String:
+	return _item_name
+
+
+func setup(image: ItemImage, frame: Texture2D) -> void: 
+	frame_image.texture = frame # sets the frame image texture to what is passed into the function.
+	item_image.texture = image.get_texture() # gets the texture from the item manager class
+	_item_name = image.get_item_name() # gets the name from the item manager class
+	reveal(false) # hides the frame and item image
+	
+	
+func matches_other_tile(other: MemoryTile) -> bool:
+	return other != self and other.get_item_name() == _item_name
+
+
+func kill_on_success():
+	z_index = 1
+	var tween: Tween = get_tree().create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(self, "disabled",  true, 0)
+	tween.tween_property(self, "rotation_degrees", 720, 0.5)
+	tween.tween_property(self, "scale", Vector2(1.5, 1.5), 0.5)
+	tween.set_parallel(false)
+	tween.tween_interval(0.6)
+	tween.tween_property(self, "scale", Vector2.ZERO, 0)
+
+func on_selection_enabled():
+	_can_select_me = true # from signal manager can trigger is tile can be selected.
+		
+		
+func on_selection_disabled():
+	_can_select_me = false
+	
+	
+func _on_pressed() -> void:
+	if _can_select_me == true and frame_image.visible == false:
+		SignalManager.on_tile_selected.emit(self) # emits type memory tile if pressed.

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://xeretput34ii"]
+
+[ext_resource type="Script" path="res://Scripts/scorer.gd" id="1_ww3pc"]
+
+[node name="Scorer" type="Node"]
+script = ExtResource("1_ww3pc")
+
+[node name="RevealTimer" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
+[connection signal="timeout" from="RevealTimer" to="." method="_on_reveal_timer_timeout"]

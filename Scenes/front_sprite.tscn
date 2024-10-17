@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx8g2vvikylqi"]
 
 [ext_resource type="Texture2D" uid="uid://cqmc3l043na60" path="res://assets/glitch/alienYellow_square.png" id="1_li6yj"]
-[ext_resource type="Script" path="res://Scenes/front_sprite.gd" id="2_m4vc7"]
+[ext_resource type="Script" path="res://Scripts/front_sprite.gd" id="2_m4vc7"]
 
 [node name="FrontSprite" type="TextureRect"]
 anchors_preset = 8
