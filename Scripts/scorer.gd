@@ -4,6 +4,7 @@ class_name Scorer
 
 
 @onready var reveal_timer: Timer = $RevealTimer
+@onready var sound: AudioStreamPlayer = $Sound
 
 
 var _selections: Array[MemoryTile] = []
@@ -37,7 +38,8 @@ func kill_tiles():
 	for tiles in _selections: # looping _selections in var tile
 		tiles.kill_on_success() # running the kill_on_sucess function from the memory script which is what _selections is a var of.
 	_pairs_made += 1
-	
+	SoundManager.play_sound(sound, SoundManager.SOUND_SUCCESS)
+	pass
 
 func selections_are_pair() -> bool:
 	return _selections[0].matches_other_tile(_selections[1])
@@ -54,10 +56,16 @@ func check_pair_made():
 		kill_tiles()
 
 
+func check_game_over():
+	if _target_pairs == _pairs_made:
+		SignalManager.on_game_over.emit(_moves_made)
+
+
 func on_tile_selected(tile: MemoryTile):
 	tile.reveal(true) # show tile that is selected
 	_selections.append(tile) # add the shown tile to the _selections array
 	check_pair_made() # check if two selections have been made, if so continue running the check_pair_made fucntion above.
+	SoundManager.play_tile_click(sound)
 
 
 func on_game_exit_pressed():
@@ -69,4 +77,5 @@ func _on_reveal_timer_timeout() -> void:
 		for s in _selections: # loop through both selected tiles
 			s.reveal(false) # if the selected tiles are not pairs hide the tiles after the timer runs out.
 	_selections.clear() # clear _selections array
+	check_game_over()
 	SignalManager.on_selection_enabled.emit() # emit to allow for inputs to happen again.
